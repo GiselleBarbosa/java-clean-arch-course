@@ -2,8 +2,11 @@ package com.giselle.cleanarch.core.domain;
 
 public class Customer {
     private String name;
+
     private String cpf;
+
     private Address address;
+
     private Boolean isValidCpf;
 
     public Customer() {
