@@ -3,9 +3,9 @@ package com.giselle.cleanarch.core.usecase.impl;
 import com.giselle.cleanarch.core.dataprovider.FindAddressByZipCode;
 import com.giselle.cleanarch.core.dataprovider.InsertCustomer;
 import com.giselle.cleanarch.core.domain.Customer;
-import com.giselle.cleanarch.core.usecase.InsertCustomerUsecase;
+import com.giselle.cleanarch.core.usecase.InsertCustomerUseCase;
 
-public class InsertCustomerUsercaseImpl implements InsertCustomerUsecase {
+public class InsertCustomerUsercaseImpl implements InsertCustomerUseCase {
 
     private final FindAddressByZipCode findAddressByZipCode;
 
