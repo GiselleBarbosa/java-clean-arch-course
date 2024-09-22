@@ -2,6 +2,7 @@ package com.giselle.cleanarch.entrypoint.controller;
 
 import com.giselle.cleanarch.core.usecase.FindCustomerByIdUseCase;
 import com.giselle.cleanarch.core.usecase.InsertCustomerUseCase;
+import com.giselle.cleanarch.core.usecase.UpdateCustomerUseCase;
 import com.giselle.cleanarch.entrypoint.controller.mapper.CustomerMapper;
 import com.giselle.cleanarch.entrypoint.controller.request.CustomerRequest;
 import com.giselle.cleanarch.entrypoint.controller.response.CustomerResponse;
@@ -22,6 +23,9 @@ public class CustomerController {
     private FindCustomerByIdUseCase findCustomerByIdUseCase;
 
     @Autowired
+    private UpdateCustomerUseCase updateCustomerUseCase;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -36,5 +40,13 @@ public class CustomerController {
         var customer = findCustomerByIdUseCase.find(id);
         var customerResponse = customerMapper.toCustomerResponse(customer);
         return ResponseEntity.ok().body(customerResponse);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable String id, @Valid @RequestBody CustomerRequest customerRequest) {
+        var customer = customerMapper.toCustomer(customerRequest);
+        customer.setId(id);
+        updateCustomerUseCase.update(customer, customerRequest.getZipcode());
+        return ResponseEntity.noContent().build();
     }
 }
