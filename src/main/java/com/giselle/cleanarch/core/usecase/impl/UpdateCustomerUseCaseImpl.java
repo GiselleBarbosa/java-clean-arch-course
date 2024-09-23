@@ -5,9 +5,6 @@ import com.giselle.cleanarch.core.dataprovider.UpdateCustomer;
 import com.giselle.cleanarch.core.domain.Customer;
 import com.giselle.cleanarch.core.usecase.FindCustomerByIdUseCase;
 import com.giselle.cleanarch.core.usecase.UpdateCustomerUseCase;
-import com.giselle.cleanarch.dataprovider.FindAddressByZipCodeImpl;
-
-import java.util.Optional;
 
 public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
 
