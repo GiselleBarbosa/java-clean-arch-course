@@ -1,4 +1,4 @@
-package com.giselle.cleanarch.config.kafka.consumer.message;
+package com.giselle.cleanarch.entrypoint.consumer.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

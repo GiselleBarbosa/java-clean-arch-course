@@ -1,6 +1,6 @@
-package com.giselle.cleanarch.config.kafka.consumer;
+package com.giselle.cleanarch.config.kafka;
 
-import com.giselle.cleanarch.config.kafka.consumer.message.CustomerMessage;
+import com.giselle.cleanarch.entrypoint.consumer.message.CustomerMessage;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

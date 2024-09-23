@@ -1,4 +1,4 @@
-package com.giselle.cleanarch.config.kafka.producer;
+package com.giselle.cleanarch.config.kafka;
 
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
