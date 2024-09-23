@@ -1,4 +1,4 @@
-package com.giselle.cleanarch.config;
+package com.giselle.cleanarch.config.beans;
 
 import com.giselle.cleanarch.core.usecase.impl.FindCustomerByIdUseCaseImpl;
 import com.giselle.cleanarch.dataprovider.FindCustomerByIdImpl;

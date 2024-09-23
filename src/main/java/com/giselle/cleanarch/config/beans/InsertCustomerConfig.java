@@ -1,4 +1,4 @@
-package com.giselle.cleanarch.config;
+package com.giselle.cleanarch.config.beans;
 
 import com.giselle.cleanarch.core.usecase.impl.InsertCustomerUsercaseImpl;
 import com.giselle.cleanarch.dataprovider.FindAddressByZipCodeImpl;
