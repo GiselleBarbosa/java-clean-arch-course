@@ -1,6 +1,20 @@
 package com.giselle.cleanarch.core.domain;
 
 public class Customer {
+    public Customer() {
+        this.isValidCpf = false;
+    }
+
+    public Customer(String id, String name, String cpf, Address address, Boolean isValidCpf) {
+        this.id = id;
+        this.name = name;
+        this.cpf = cpf;
+        this.address = address;
+        this.isValidCpf = isValidCpf;
+    }
+
+    private String id;
+
     private String name;
 
     private String cpf;
@@ -8,12 +22,6 @@ public class Customer {
     private Address address;
 
     private Boolean isValidCpf;
-
-    public Customer() {
-        this.isValidCpf = false;
-    }
-
-    private String id;
 
     public String getId() {
         return id;
@@ -47,19 +55,11 @@ public class Customer {
         this.address = address;
     }
 
-    public Boolean getValidCpf() {
+    public Boolean getIsValidCpf() {
         return isValidCpf;
     }
 
-    public void setValidCpf(Boolean validCpf) {
-        isValidCpf = validCpf;
-    }
-
-    public Customer(String id, String name, String cpf, Address address, Boolean isValidCpf) {
-        this.id = id;
-        this.name = name;
-        this.cpf = cpf;
-        this.address = address;
+    public void setIsValidCpf(Boolean isValidCpf) {
         this.isValidCpf = isValidCpf;
     }
 }
