@@ -1,17 +1,17 @@
 package com.giselle.cleanarch.entrypoint.controller;
 
-import com.giselle.cleanarch.core.usecase.DeleteCustomerByIdUseCase;
-import com.giselle.cleanarch.core.usecase.FindCustomerByIdUseCase;
-import com.giselle.cleanarch.core.usecase.InsertCustomerUseCase;
-import com.giselle.cleanarch.core.usecase.UpdateCustomerUseCase;
+import com.giselle.cleanarch.core.usecase.*;
 import com.giselle.cleanarch.entrypoint.controller.mapper.CustomerMapper;
 import com.giselle.cleanarch.entrypoint.controller.request.CustomerRequest;
 import com.giselle.cleanarch.entrypoint.controller.response.CustomerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/customers")
@@ -30,7 +30,11 @@ public class CustomerController {
     private DeleteCustomerByIdUseCase deleteCustomerByIdUseCase;
 
     @Autowired
+    private FindAllCustomersUseCase findAllCustomersUseCase;
+
+    @Autowired
     private CustomerMapper customerMapper;
+
 
     @PostMapping
     public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest) {
@@ -58,5 +62,14 @@ public class CustomerController {
     public ResponseEntity<Void> delete(@PathVariable String id) {
         deleteCustomerByIdUseCase.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CustomerResponse>> findAll() {
+        var customers = findAllCustomersUseCase.findAll();
+        var customerResponses = customers.stream()
+                .map(customerMapper::toCustomerResponse)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(customerResponses, HttpStatus.OK);
     }
 }
