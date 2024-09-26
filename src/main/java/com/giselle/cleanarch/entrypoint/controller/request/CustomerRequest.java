@@ -1,5 +1,4 @@
 package com.giselle.cleanarch.entrypoint.controller.request;
-
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -14,6 +13,6 @@ public class CustomerRequest {
     private String cpf;
 
     @NotBlank
-    private String zipcode;
+    private String zipCode;
 
 }

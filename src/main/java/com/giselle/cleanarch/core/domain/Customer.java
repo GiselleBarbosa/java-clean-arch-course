@@ -14,13 +14,9 @@ public class Customer {
     }
 
     private String id;
-
     private String name;
-
     private String cpf;
-
     private Address address;
-
     private Boolean isValidCpf;
 
     public String getId() {

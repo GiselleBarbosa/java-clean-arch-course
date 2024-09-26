@@ -13,5 +13,5 @@ spring:
       port: 27017
       authentication-database: admin
       username: root
-      password: exemple
+      password: example
       database: cleanarch
